@@ -20,7 +20,8 @@ export default function SearchBar() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (window.location.href !== "https://bolsillofeliz.vercel.app/home") {
+    if (window.location.href === `${window.location.origin}/home`) {
+      console.log(window.location)
       getCategoryParams(dispatch, brand, category, valor, pname)
         .then(navigate("/home"))
         .then(() => getCategoryParams(dispatch, brand, category, valor, pname));
